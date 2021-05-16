@@ -1,0 +1,185 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
+:root {
+    --color-soft-violet: hsl(273, 75%, 66%);
+    --color-soft-blue: hsl(240, 73%, 65%);
+    --light-grayish-blue: hsl(240, 5%, 91%);
+    --very-dark-grayish-blue: hsl(237, 12%, 33%);
+    --dark-grayish-blue: hsl(240, 6%, 50%);
+    --soft-red: hsl(14, 88%, 65%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.center{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(var(--color-soft-violet)), to(var(--color-soft-blue)));
+    background-image: -o-linear-gradient(var(--color-soft-violet), var(--color-soft-blue));
+    background-image: linear-gradient(var(--color-soft-violet), var(--color-soft-blue));
+    min-height: 100vh;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.faq-card {
+    width: 57rem;
+    height: 31rem;
+    background-color: #fff;
+    background-image: url('images/bg-pattern-desktop.svg');
+    background-position: -36rem 65%;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.faq-card__img--mobile {
+    display: none;
+}
+
+.faq-card__img--desktop {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin-left: -5rem;
+}
+
+.faq-box {
+    position: relative;
+}
+
+.faq-card__box--desktop {
+    position: absolute;
+    left: -6rem;
+    top: -3rem;
+    z-index: 2;
+}
+.faq-card__box--mobile {
+    display: none;
+}
+.faq-card__text {
+    padding: 5rem 8rem 5rem 5rem;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+}
+
+.faq-card__text__heading {
+   font-size: 2rem;
+   margin-bottom: 1rem;
+}
+
+.faq-card__text__questions{
+    max-height: 18rem;
+    overflow-y: auto;
+}
+
+.faq-card__text__question {
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--light-grayish-blue);
+}
+
+.faq-card__text__question__heading {
+    font-size: 0.9rem;
+    list-style: none;
+    color: var(--very-dark-grayish-blue);
+    position: relative;
+    cursor: pointer;
+}
+
+.faq-card__text__question__heading:hover{
+   color: var(--soft-red);
+}
+
+.faq-card__text__question[open] .faq-card__text__question__heading {
+    font-weight: 700;
+}
+
+.faq-card__text__question[open] .faq-card__text__question__heading::after {
+    transform: rotate(180deg);
+}
+
+.faq-card__text__question__heading::after {
+    content: url('images/icon-arrow-down.svg');
+    position: absolute;
+    right: 0;
+    transition: all 0.3s ease;
+}
+
+.faq-card__text__question__answer {
+    color: var(--dark-grayish-blue);
+    margin-top: 1rem;
+    line-height: 1.1rem;
+} 
+
+@media screen and (max-width: 1000px) {
+    .faq-card {
+        flex-direction: column;
+        width: 20rem;
+        height: 70vh;
+        background-image: url('images/bg-pattern-mobile.svg');
+        background-position: 50% 0;
+        margin-top: 5rem;
+    }
+    .faq-card__img--desktop {
+        display: none;
+    }
+    .faq-card__img--mobile {
+        display: block;
+        margin-left: 1rem;
+        margin-top: -7rem;
+        z-index: 2;
+    }
+    .faq-box {
+        display: none;
+    }
+    .faq-card__text {
+        padding: 2rem;
+        padding-top: 3rem;
+    }
+    .faq-card__text__heading {
+        font-size: 1.7rem;
+        text-align: center;
+    }
+    .faq-card__text__question__heading {
+        font-size: 0.8rem;
+    }
+    .faq-card__text__questions {
+        max-height: 40vh;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    .faq-card__text__question__heading {
+        font-size: 0.7rem;
+    }
+    .faq-card__text__heading {
+        font-size: 1.5rem;
+    }
+    .faq-card__text {
+        padding: 1rem;
+        padding-top: 2rem;
+    }
+}
